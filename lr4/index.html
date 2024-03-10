@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Л/Р №4 - Максим Демидов, K33422</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Максим Демидов, K33422</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Оглавление</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../lr1/" class="nav-link">Л/Р №1</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../lr2/" class="nav-link">Л/Р №2</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../practice_3_1/" class="nav-link">Практика 3.1</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../lr3/" class="nav-link">Л/Р №3</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Л/Р №4</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../lr3/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">Описание</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#routerindexjs" class="nav-link">Пути (router/index.js)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_2" class="nav-link">Компоненты</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Описание</h1>
+<p><strong>Задача</strong>: Реализация клиентской части приложения средствами vue.js.</p>
+<p><strong>Предметная область</strong>: Выставка собак.</p>
+<h1 id="routerindexjs">Пути (router/index.js)</h1>
+<p>Настройка и создание маршрутизатора.</p>
+<p><strong>Листинг кода</strong>:</p>
+<pre><code>import { createRouter, createWebHistory } from 'vue-router'
+import MainPage from &quot;@/components/MainPage.vue&quot;;
+import ParticipantList from &quot;@/components/ParticipantList.vue&quot;;
+import ParticipantDetails from &quot;@/components/ParticipantDetails.vue&quot;;
+import ParticipantEdit from &quot;@/components/ParticipantEdit.vue&quot;;
+import ParticipantCreate from &quot;@/components/ParticipantCreate.vue&quot;;
+
+import ExpertList from &quot;@/components/ExpertList.vue&quot;;
+import ExpertDetails from &quot;@/components/ExpertDetails.vue&quot;;
+import ExpertEdit from &quot;@/components/ExpertEdit.vue&quot;;
+import ExpertCreate from &quot;@/components/ExpertCreate.vue&quot;;
+
+import ClubList from &quot;@/components/ClubList.vue&quot;;
+import ClubDetails from &quot;@/components/ClubDetails.vue&quot;;
+import ClubEdit from &quot;@/components/ClubEdit.vue&quot;;
+import ClubCreate from &quot;@/components/ClubCreate.vue&quot;;
+
+import RingList from &quot;@/components/RingList.vue&quot;;
+import RingDetails from &quot;@/components/RingDetails.vue&quot;;
+import RingEdit from &quot;@/components/RingEdit.vue&quot;;
+import RingCreate from &quot;@/components/RingCreate.vue&quot;;
+
+import ShowList from &quot;@/components/ShowList.vue&quot;;
+import ShowDetails from &quot;@/components/ShowDetails.vue&quot;;
+import ShowEdit from &quot;@/components/ShowEdit.vue&quot;;
+import ShowCreate from &quot;@/components/ShowCreate.vue&quot;;
+
+import ParticipationList from &quot;@/components/ParticipationList.vue&quot;;
+import ParticipationDetails from &quot;@/components/ParticipationDetails.vue&quot;;
+import ParticipationEdit from &quot;@/components/ParticipationEdit.vue&quot;;
+import ParticipationCreate from &quot;@/components/ParticipationCreate.vue&quot;;
+
+import Auth from &quot;@/components/Auth.vue&quot;;
+//import ErrorPage from &quot;@/components/ErrorPage.vue&quot;;
+import Registration from &quot;@/components/Registration.vue&quot;;
+import UserProfile from &quot;@/components/UserProfile.vue&quot;;
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '',
+      name: 'Auth',
+      component: Auth
+    },
+    {
+      path: '/mainpage',
+      name: 'MainPage',
+      component: MainPage
+    },
+    {
+      path: '/registration',
+      name: 'Registration',
+      component: Registration
+    },
+    {
+      path: '/userprofile',
+      name: 'UserProfile',
+      component: UserProfile
+    },
+    {
+      path: '/participants',
+      name: 'ParticipantList',
+      component: ParticipantList
+    },
+    {
+      path: '/participants/:id',
+      name: 'ParticipantDetails',
+      component: ParticipantDetails
+    },
+    {
+      path: '/participants/:id/edit',
+      name: 'ParticipantEdit',
+      component: ParticipantEdit,
+      props: (route) =&gt; ({ participant: route.params.participant })
+    },
+    {
+      path: '/participants/add',
+      name: 'ParticipantCreate',
+      component: ParticipantCreate
+    },
+    {
+      path: '/experts',
+      name: 'ExpertList',
+      component: ExpertList
+    },
+    {
+      path: '/experts/:id',
+      name: 'ExpertDetails',
+      component: ExpertDetails
+    },
+    {
+      path: '/experts/:id/edit',
+      name: 'ExpertEdit',
+      component: ExpertEdit,
+      props: (route) =&gt; ({ expert: route.params.expert })
+    },
+    {
+      path: '/experts/add',
+      name: 'ExpertCreate',
+      component: ExpertCreate
+    },
+    {
+      path: '/clubs',
+      name: 'ClubList',
+      component: ClubList
+    },
+    {
+      path: '/clubs/:id',
+      name: 'ClubDetails',
+      component: ClubDetails
+    },
+    {
+      path: '/clubs/:id/edit',
+      name: 'ClubEdit',
+      component: ClubEdit,
+      props: (route) =&gt; ({ club: route.params.club })
+    },
+    {
+      path: '/clubs/add',
+      name: 'ClubCreate',
+      component: ClubCreate
+    },
+    {
+      path: '/rings',
+      name: 'RingList',
+      component: RingList
+    },
+    {
+      path: '/rings/:id',
+      name: 'RingDetails',
+      component: RingDetails
+    },
+    {
+      path: '/rings/:id/edit',
+      name: 'RingEdit',
+      component: RingEdit,
+      props: (route) =&gt; ({ ring: route.params.ring })
+    },
+    {
+      path: '/rings/add',
+      name: 'RingCreate',
+      component: RingCreate
+    },
+    {
+      path: '/shows',
+      name: 'ShowList',
+      component: ShowList
+    },
+    {
+      path: '/shows/:id',
+      name: 'ShowDetails',
+      component: ShowDetails
+    },
+    {
+      path: '/shows/:id/edit',
+      name: 'ShowEdit',
+      component: ShowEdit,
+      props: (route) =&gt; ({ show: route.params.show })
+    },
+    {
+      path: '/shows/add',
+      name: 'ShowCreate',
+      component: ShowCreate
+    },
+    {
+      path: '/participations',
+      name: 'ParticipationList',
+      component: ParticipationList
+    },
+    {
+      path: '/participations/:id',
+      name: 'ParticipationDetails',
+      component: ParticipationDetails
+    },
+    {
+      path: '/participations/:id/edit',
+      name: 'ParticipationEdit',
+      component: ParticipationEdit,
+      props: (route) =&gt; ({ participation: route.params.participation })
+    },
+    {
+      path: '/participations/add',
+      name: 'ParticipationCreate',
+      component: ParticipationCreate
+    },
+    // остальные маршруты
+  ]
+})
+
+export default router
+</code></pre>
+<h1 id="_2">Компоненты</h1>
+<p>Их большое кол-во, поэтому перечислены основные.</p>
+<p><strong>Auth.vue</strong>:</p>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;login-container&quot;&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form @submit.prevent=&quot;setLogin&quot;&gt;
+      &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;
+      &lt;input v-model=&quot;login&quot; type=&quot;text&quot; id=&quot;username&quot; required /&gt;
+
+      &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;
+      &lt;input v-model=&quot;password&quot; type=&quot;password&quot; id=&quot;password&quot; required /&gt;
+
+      &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;router-link to=&quot;/registration&quot; class=&quot;register-button&quot;&gt;
+      Register
+    &lt;/router-link&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from 'axios';
+
+export default {
+  name: 'Auth',
+  data() {
+    return {
+      login: '',
+      password: '',
+    };
+  },
+  methods: {
+    async setLogin() {
+      try {
+        const response = await axios.post(
+          'http://127.0.0.1:8000/auth/token/login/',
+          {
+            username: this.login,
+            password: this.password,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+          }
+        );
+
+        localStorage.setItem('access_token', response.data.access);
+        this.$router.push({ name: 'UserProfile' });
+      } catch (error) {
+        console.error(error);
+
+        if (error.response &amp;&amp; error.response.status === 401) {
+          this.$router.push({ name: 'ErrorPage' });
+        }
+      }
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.login-container {
+  width: 400%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button,
+.register-button {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #3498db;
+  padding: 15px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+button:hover,
+.register-button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+&lt;/style&gt;
+</code></pre>
+<p><strong>UserProfile.vue</strong>:</p>
+<pre><code>&lt;template&gt;
+    &lt;div&gt;
+      &lt;h1&gt;User Information&lt;/h1&gt;
+      &lt;div v-if=&quot;user&quot;&gt;
+        &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; {{ user.email }}&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;ID:&lt;/strong&gt; {{ user.id }}&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Username:&lt;/strong&gt; {{ user.username }}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div v-else&gt;
+        &lt;p&gt;Loading...&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Добавим кнопку для перехода на главную страницу --&gt;
+      &lt;router-link to=&quot;/MainPage&quot; class=&quot;back-button&quot;&gt;
+        Back to Main Page
+      &lt;/router-link&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+  import axios from 'axios';
+
+  export default {
+    data() {
+      return {
+        user: null,
+      };
+    },
+    mounted() {
+      // Проверяем наличие токена перед загрузкой информации о пользователе
+      const accessToken = localStorage.getItem('access_token');
+      if (!accessToken) {
+        // Если токен отсутствует, перенаправляем на страницу авторизации
+        this.$router.push({ name: 'Auth' });
+        return;
+      }
+
+      // Отправляем GET-запрос для получения информации о пользователе
+      axios.get('http://127.0.0.1:8000/auth/users/me', {
+        headers: {
+          Authorization: `Token ${accessToken}`,
+        },
+      })
+        .then(response =&gt; {
+          this.user = response.data;
+        })
+        .catch(error =&gt; {
+          console.error('Error fetching user information:', error);
+        });
+    },
+  };
+  &lt;/script&gt;
+
+  &lt;style scoped&gt;
+  /* Твои стили компоненты, если нужны */
+  &lt;/style&gt;
+</code></pre>
+<p><strong>MainPage.vue</strong>:</p>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;main-page&quot;&gt;
+    &lt;h1 class=&quot;main-title&quot;&gt;Главная страница&lt;/h1&gt;
+    &lt;router-link :to=&quot;{ name: 'ParticipantList' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Перейти к списку участников&lt;/button&gt;
+    &lt;/router-link&gt;
+    &lt;router-link :to=&quot;{ name: 'ShowList' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Перейти к списку выставок&lt;/button&gt;
+    &lt;/router-link&gt;
+    &lt;router-link :to=&quot;{ name: 'ParticipationList' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Перейти к списку участий&lt;/button&gt;
+    &lt;/router-link&gt;
+    &lt;router-link :to=&quot;{ name: 'ExpertList' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Перейти к списку экспертов&lt;/button&gt;
+    &lt;/router-link&gt;
+    &lt;router-link :to=&quot;{ name: 'ClubList' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Перейти к списку клубов&lt;/button&gt;
+    &lt;/router-link&gt;
+    &lt;router-link :to=&quot;{ name: 'RingList' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Перейти к списку рингов&lt;/button&gt;
+    &lt;/router-link&gt;
+        &lt;router-link :to=&quot;{ name: 'Auth' }&quot;&gt;
+      &lt;button class=&quot;main-button&quot;&gt;Выйти&lt;/button&gt;
+    &lt;/router-link&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  // Компонент для главной страницы
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.main-page {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.main-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.main-button {
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  border-radius: 30px;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s;
+  margin: 10;
+  border: 1px solid #3498db;
+  width: 400px; /* Фиксированная ширина кнопки */
+}
+
+.main-button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+&lt;/style&gt;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
